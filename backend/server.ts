@@ -7,8 +7,13 @@ let players : string[] = [];
 io.on('connection', (socket: any) => {
   const socketId: string = socket.id;
 
+  socket.join('players');
+  socket.join('game');
+  socket.join('chat');
+
   players.push(socketId);
-  io.emit('players', players);
+
+  io.to('players').emit('playerlist', players);
 
   console.log(`New player: ${socketId}`);
 
