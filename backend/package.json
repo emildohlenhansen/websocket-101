@@ -1,0 +1,22 @@
+{
+  "name": "websocket-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn ./server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "express": "^4.16.4",
+    "express-ws": "^4.0.0",
+    "http": "0.0.0",
+    "socket.io": "^2.2.0",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.4.2"
+  }
+}
