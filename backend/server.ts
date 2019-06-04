@@ -20,7 +20,7 @@ io.on('connection', (socket: any) => {
   socket.on('disconnect', () => {
     players = players.filter(p => p === socketId);
 
-    io.to('players').emit('playerlist', players);
+    socket.to('players').emit('playerlist', players);
 
     console.log(`Player: ${socketId} disconnected`);
   });

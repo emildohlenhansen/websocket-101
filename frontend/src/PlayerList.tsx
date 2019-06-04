@@ -1,28 +1,29 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import {useState} from 'react';
 
-const PlayerList: React.FunctionComponent = () => {
-  return (
-    <section className="player-container border">
-      <h2>Players</h2>
-      <div className="player-list">
-        <ul>
-          <li>
-            <div className="cursor-icon red" />
-            Spiller 1
-          </li>
-          <li>
-            <div className="cursor-icon blue" />
-            Spiller 2
-          </li>
-          <li>
-            <div className="cursor-icon green" />
-            Spiller 3
-          </li>
-        </ul>
-      </div>
-    </section>
-  );
+const PlayerList: React.FunctionComponent<any> = (props) => {
+    const [players, setPlayers] = useState<string[]>([]);
+
+    const {socket} = props;
+
+    socket.on('playerlist', (players: string []) => {
+        setPlayers(players);
+    });
+
+    return (
+        <section className="player-container border">
+            <h2>Players</h2>
+            <div className="player-list">
+                <ul>
+                    {players.map(player => (
+                        <li key={player}>
+                            <div className="cursor-icon red"/>
+                            {player}
+                        </li>))}
+                </ul>
+            </div>
+        </section>
+    );
 };
 
 export default PlayerList;
