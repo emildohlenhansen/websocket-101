@@ -1,23 +1,13 @@
 import * as React from 'react';
-import { useEffect, useState, FunctionComponent } from 'react';
+import { useEffect, useState } from 'react';
 import { timestampToHumanReadableTime } from './utils/date';
 
-interface Message {
-  id: string;
-  message: string;
-  timestamp: string;
-  user: {
-    id: string;
-    nickname: string;
-  };
-}
-
-const Chat: FunctionComponent<any> = ({ socket }) => {
+const Chat = ({ socket }) => {
   const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState([]);
   const { id } = socket;
 
-  socket.on('messages', (messages: Message[]) => {
+  socket.on('messages', messages => {
     setMessages(messages);
   });
 
@@ -28,7 +18,7 @@ const Chat: FunctionComponent<any> = ({ socket }) => {
 
   useEffect(() => {
     // Scroll to and show last message
-    const chatHistory: any = document.getElementById('messages');
+    const chatHistory = document.getElementById('messages');
     chatHistory.scrollTop = chatHistory.scrollHeight;
   });
 

@@ -9,28 +9,24 @@ module.exports = {
   performance: {
     hints: false
   },
-  entry: [
-    'whatwg-fetch',
-    path.resolve('src', 'index.tsx')
-  ],
+  entry: ['whatwg-fetch', path.resolve('src', 'index.js')],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: ['awesome-typescript-loader']
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
         test: /\.less$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
-      },
-      {
-        test: /\.svg$/,
-        use: ['svg-url-loader']
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx']
+    extensions: ['.js', 'jsx']
   },
   output: {
     path: path.resolve('dist'),

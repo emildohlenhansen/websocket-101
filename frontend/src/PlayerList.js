@@ -1,16 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-interface Player {
-  id: string;
-  nickname: string;
-}
-
-const PlayerList: React.FunctionComponent<any> = ({ socket }) => {
-  const [players, setPlayers] = useState<Player[]>([]);
-  const [nickname, setNickname] = useState<string>('');
-  const [showNicknameInput, setshowNicknameInput] = useState<Boolean>(false);
-  const [nicknameAdded, setnicknameAdded] = useState<Boolean>(false);
+const PlayerList = ({ socket }) => {
+  const [players, setPlayers] = useState([]);
+  const [nickname, setNickname] = useState('');
+  const [showNicknameInput, setshowNicknameInput] = useState(false);
+  const [nicknameAdded, setnicknameAdded] = useState(false);
   const { id } = socket;
 
   const addNickname = () => {
@@ -18,7 +13,7 @@ const PlayerList: React.FunctionComponent<any> = ({ socket }) => {
     setnicknameAdded(true);
   };
 
-  socket.on('playerlist', (players: Player[]) => {
+  socket.on('playerlist', players => {
     setPlayers(players);
   });
 
