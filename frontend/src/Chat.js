@@ -35,7 +35,9 @@ const Chat = ({ socket }) => {
                 <dt>{message.message}</dt>
                 <dd>
                   <span>
-                    {message.user.nickname ? message.user.nickname : message.id}
+                    {message.user && message.user.nickname
+                      ? message.user.nickname
+                      : message.id}
                   </span>
                   <span className="align-right">
                     {timestampToHumanReadableTime(message.timestamp)}
