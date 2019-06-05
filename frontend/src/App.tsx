@@ -12,8 +12,9 @@ const App: React.FunctionComponent = () => {
   return (
     <article className="container">
       <PlayerList socket={socket} />
-      <Game />
+      <Game socket={socket} />
       <Chat socket={socket} />
+      <div />
     </article>
   );
 };

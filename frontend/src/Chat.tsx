@@ -6,12 +6,15 @@ interface Message {
   id: string;
   message: string;
   timestamp: string;
+  user: {
+    id: string;
+    nickname: string;
+  };
 }
 
-const Chat: FunctionComponent<any> = props => {
+const Chat: FunctionComponent<any> = ({ socket }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
-  const { socket } = props;
   const { id } = socket;
 
   socket.on('messages', (messages: Message[]) => {
@@ -41,7 +44,9 @@ const Chat: FunctionComponent<any> = props => {
               >
                 <dt>{message.message}</dt>
                 <dd>
-                  <span>{message.id}</span>
+                  <span>
+                    {message.user.nickname ? message.user.nickname : message.id}
+                  </span>
                   <span className="align-right">
                     {timestampToHumanReadableTime(message.timestamp)}
                   </span>
