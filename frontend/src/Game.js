@@ -57,9 +57,6 @@ const Game = ({ socket }) => {
   return (
     <section className="game-container border">
       <h2>Game</h2>
-      <p>
-        position(x,y): {xPostion},{yPostion}
-      </p>
       <canvas
         className="game"
         id="canvas"
