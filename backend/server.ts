@@ -20,9 +20,15 @@ interface userMessage {
   timestamp: string;
 }
 
+interface Position {
+  id: string;
+  x: string;
+  y: string;
+}
+
 let players: Player[] = [];
 let messages: Message[] = [];
-let positions: any[] = [];
+let positions: Position[] = [];
 
 io.on('connection', (socket: any) => {
   const socketId: string = socket.id;
@@ -51,7 +57,7 @@ io.on('connection', (socket: any) => {
     io.to('chat').emit('messages', messages);
   });
 
-  socket.on('updatePosition', (position: any) => {
+  socket.on('updatePosition', (position: Position) => {
     positions = [...positions.filter(p => p.id !== position.id), position];
     console.log(positions);
     io.to('game').emit('positions', positions);
