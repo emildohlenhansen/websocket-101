@@ -1,4 +1,4 @@
-# REST 101
+# WebSocket 101
 
 ## Installasjon
 
