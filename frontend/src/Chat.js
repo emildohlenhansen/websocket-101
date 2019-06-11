@@ -1,20 +1,11 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { timestampToHumanReadableTime } from './utils/date';
+import { useEffect, useState } from 'react';
 
 const Chat = ({ socket }) => {
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
-  const { id } = socket;
-
-  socket.on('messages', messages => {
-    setMessages(messages);
-  });
-
-  const sendMessage = () => {
-    socket.emit('message', { id, message, timestamp: Date.now() });
-    setMessage('');
-  };
+  const [message, setMessage] = useState(
+    'Takk! Men jeg tror ikke hen er helt optimal enda..'
+  );
 
   useEffect(() => {
     // Scroll to and show last message
@@ -28,30 +19,22 @@ const Chat = ({ socket }) => {
       <div className="chat">
         <div className="messages" id="messages">
           <dl>
-            {messages.map(message => (
-              <section
-                className={`message ${message.id === id ? 'my-message' : ''}`}
-              >
-                <dt>{message.message}</dt>
-                <dd>
-                  <span>
-                    {message.user && message.user.nickname
-                      ? message.user.nickname
-                      : message.id}
-                  </span>
-                  <span className="align-right">
-                    {timestampToHumanReadableTime(message.timestamp)}
-                  </span>
-                </dd>
-              </section>
-            ))}
+            <section className={'message'}>
+              <dt>Velkommen til chatten!</dt>
+              <dd>
+                <span>Testuser</span>
+                <span className="align-right">
+                  {timestampToHumanReadableTime(483284938298)}
+                </span>
+              </dd>
+            </section>
           </dl>
         </div>
         <textarea
           value={message}
-          onChange={e => setMessage(e.currentTarget.value)}
+          onChange={e => console.log(e.currentTarget.value)}
         />
-        <button onClick={() => sendMessage()}>Send melding</button>
+        <button>Send melding</button>
       </div>
     </section>
   );
