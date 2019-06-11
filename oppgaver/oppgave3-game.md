@@ -20,18 +20,18 @@ Koble socketen til rommet `game`
 
 Lag en eventlytter, denne lytteren skal
 - Ta imot posisjonen du sendte i `1)` 
-- Legge til posisjonen på lista `players` (som du opprettet i `oppgave1-spilleliste`)
+- Legge til posisjonen på en ny liste `Positions` som inneholder x, y og, id 
 - Sende en ny melding med `players` til alle i rommet `game`
 
 ## Del 2
 ### Frontend
 #### 1) Tegn opp alle posisjonene
 
-Ta imot meldingen med `players` og tegn opp alle posisjonene i `canvaset`
+Ta imot meldingen med `positions` og tegn opp alle posisjonene i `canvaset`
 
 For å få hver bruker til å få forskjellig farge kan du bruke ColorHelper.js
 ```
-context.fillStyle = ColorHelper.hashColor(player.id);
+context.fillStyle = ColorHelper.hashColor(position.id);
 ```
 
 ##Del 3: Optimalisering
