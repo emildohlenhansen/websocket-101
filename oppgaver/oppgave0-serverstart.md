@@ -1,13 +1,14 @@
-#Oppstart av servere
+#Oppstart
+
 ##Backend
-Naviger til mappen `/backend` og kjør kom`mandoene
+Naviger til mappen `/backend` og kjør kommandoene:
 ```
 npm install
 npm run dev
 ```
 
 ##Frontend
-Naviger til mappen `/frontend` og kjør kommandoene
+Naviger til mappen `/frontend` og kjør kommandoene:
 ```
 npm install
 npm start
