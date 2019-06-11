@@ -20,8 +20,8 @@ Koble socketen til rommet `game`
 
 Lag en eventlytter, denne lytteren skal
 - Ta imot posisjonen du sendte i `1)` 
-- Legge til posisjonen på en ny liste `Positions` som inneholder x, y og, id 
-- Sende en ny melding med `players` til alle i rommet `game`
+- Lagre dataene i en liste av interfacet `Position` 
+- Sende en ny melding med disse dataene til alle i rommet `game`
 
 ## Del 2
 ### Frontend
