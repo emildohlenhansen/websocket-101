@@ -32,7 +32,10 @@ const Game = ({ socket }) => {
     const x = (clientX - rect.left) * scaleX;
     const y = (clientY - rect.top) * scaleY;
 
-    if(Math.abs(xPostion - x) > updateRate || Math.abs(yPostion - y) > updateRate) {
+    if((xPostion !== x || yPostion !== y) &&
+      (Math.abs(xPostion - x) > updateRate
+      || Math.abs(yPostion - y) > updateRate)) {
+
       setXPostion(x);
       setyPostion(y);
       socket.emit('updatePosition', { id, x, y });
