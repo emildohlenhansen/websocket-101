@@ -29,9 +29,9 @@ Lag en eventlytter, denne lytteren skal
 
 Ta imot meldingen med `players` og tegn opp alle posisjonene i `canvaset`
 
-For å få hver bruker til å få forskjellig farge kan du bruke denne linjen
+For å få hver bruker til å få forskjellig farge kan du bruke ColorHelper.js
 ```
-context.fillStyle = intToRGB(hashCode(player.id));
+context.fillStyle = ColorHelper.hashColor(player.id);
 ```
 
 ##Del 3: Optimalisering

@@ -57,11 +57,7 @@ io.on('connection', (socket: any) => {
     io.to('chat').emit('messages', messages);
   });
 
-  socket.on('updatePosition', (position: Position) => {
-    positions = [...positions.filter(p => p.id !== position.id), position];
-    console.log(positions);
-    io.to('game').emit('positions', positions);
-  });
+
 
   console.log(`New player: ${socketId}`);
 
