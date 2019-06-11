@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 const Game = () => {
-
   const mouseMove = event => {
     const { clientX, clientY } = event;
 
@@ -13,7 +12,6 @@ const Game = () => {
     const x = (clientX - rect.left) * scaleX;
     const y = (clientY - rect.top) * scaleY;
   };
-
 
   return (
     <section className="game-container border">
