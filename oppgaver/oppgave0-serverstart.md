@@ -1,13 +1,13 @@
-#Oppstart
+# Oppstart
 
-##Backend
+## Backend
 Naviger til mappen `/backend` og kjør kommandoene:
 ```
 npm install
 npm run dev
 ```
 
-##Frontend
+## Frontend
 Naviger til mappen `/frontend` og kjør kommandoene:
 ```
 npm install
